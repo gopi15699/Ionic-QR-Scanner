@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div #map id='map'></div>
+ <p>LAT:{{mapvo.latitude}}, LONG:{{mapvo.longitude}} </p>
+ <ion-button (click)="mapme()">Where i am</ion-button>
+ <ion-button (click)="gomap()">GOMAP</ion-button>
+</ion-content>

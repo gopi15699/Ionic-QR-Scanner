@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tab4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div
+  ng2FileDrop
+  [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+  (fileOver)="fileOverBase($event)"
+  [uploader]="uploader"
+  class="drop-zone"
+>
+  <p style="color: #2b5ab1;">Drop files here...</p>
+</div>
+<div class="file-input-container">
+  <label>
+    <input type="file" ng2FileSelect [uploader]="uploader" multiple />
+    Add Files
+  </label>
+</div>
+<h2>Files: {{ uploader?.queue?.length }}</h2>
+<ion-list>
+  <ion-reorder-group (ionItemReorder)="reorderFiles($event)" disabled="false">
+    <ion-item *ngFor="let item of uploader.queue">
+      <ion-label> {{ item?.file?.name }} </ion-label>
+      <ion-reorder></ion-reorder>
+    </ion-item>
+  </ion-reorder-group>
+</ion-list>
+</ion-content>

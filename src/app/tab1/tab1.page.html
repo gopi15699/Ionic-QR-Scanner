@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img [src] ="photo"/>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takepic()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <ion-item >
+    <ion-label position="stacked" >FILE NAME</ion-label>
+    <input type="file" #fileInput (change)="loadImageFromDevice1($event)" id="file-input"
+    accept="image/png, image/jpeg , application/msword, application/vnd.ms-excel, application/pdf, 	application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+  </ion-item> -->
+  <ion-item>
+    <input type="file" (change)="onFileChange($event)" />
+  </ion-item>
+  <!-- <ion-item>
+    <input type="file" (change)="previewFile($event)"><br>
+    <img src="" height="200" alt="Image preview...">
+  </ion-item> -->
+
+  <ion-button color="success" shape="round" type="submit" (click)=" attach()">
+    <ion-icon slot="start" name="save"></ion-icon> OK
+  </ion-button>
+  <div *ngIf="isok">
+  <img src="{{myimg}}" height="200" width="200" />
+  </div>
+  <ion-button  vertical="bottom" horizontal="right" >GALLERY ACCESS</ion-button>
+
+
+</ion-content>
